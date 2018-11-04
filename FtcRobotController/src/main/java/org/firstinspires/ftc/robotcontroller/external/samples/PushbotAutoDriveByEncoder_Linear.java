@@ -47,10 +47,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  *  power command moves them forwards, and causes the encoders to count UP.
  *
  *   The desired path in this example is:
- *   - Drive forward for 48 inches
- *   - Spin right for 12 Inches
- *   - Drive Backwards for 24 inches
- *   - Stop and close the claw.
+ *   - Landing to the ground (4-5 inches)
+ *   - Drive right for approximately 6 inches
+ *   - Spin around 90 degrees right to become straight
+ *   - Drive out and away from the lander (either left or right)
+ *   - We may need 4 different autonomous programs (one for each position on the lander)
  *
  *  The code is written using a method called: encoderDrive(speed, leftInches, rightInches, timeoutS)
  *  that performs the actual movement.
@@ -62,8 +63,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Pushbot: Auto Drive By Encoder", group="Pushbot")
-@Disabled
+@Autonomous(name="TrebleBot: Auto Drive By Encoder", group="TrebleBot")
+//@Disabled
 public class PushbotAutoDriveByEncoder_Linear extends LinearOpMode {
 
     /* Declare OpMode members. */
@@ -80,6 +81,8 @@ public class PushbotAutoDriveByEncoder_Linear extends LinearOpMode {
 
     @Override
     public void runOpMode() {
+
+
 
         /*
          * Initialize the drive system variables.
